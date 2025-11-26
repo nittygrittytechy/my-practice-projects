@@ -7,65 +7,107 @@
 body {
     margin: 0;
     padding: 0;
+    color:#353535
 }
-h1{margin:40px}
-h2{margin:0px;}
-.date{
+
+h1 {
+    margin: 40px;
+}
+
+h2 {
+    margin: 0;
+    font-size:26px;
+}
+p{margin-bottom: 30px;}
+.date {
     font-size: 12px;
     font-style: italic;
     margin-bottom: 20px;
     display: block; /* Makes margin work! */
 }
-.card-wrap{
+
+/* Visually hidden class for screen readers only */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Card container */
+.card-wrap {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px; /* Better than margin for spacing */
 }
-.card-body{
-    flex: 1 1 300px;  /* Grow/shrink, minimum 300px */
-    max-width: 350px; /* Don't get too wide */
+
+/* Individual card */
+.card-body {
+    flex: 0 0 calc(33.333% - 20px); /* Exactly 1/3 width minus gap */
+    max-width: calc(33.333% - 20px);
     padding: 1rem 1rem;
     background-color: #d9ebfc;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 0.25rem;
-    margin:0px 10px
-}
-.btn-card{
     display: flex;
+    flex-direction: column;
+}
+
+/* Button wrapper */
+.btn-wrap {
+    display: flex;
+    gap: 10px;
+    margin-top: auto; /* Push buttons to bottom */
+    justify-content: center;
+}
+
+/* Button/link styling */
+.btn-card {
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     padding: 0.5rem 1rem;
-    background-color: #92bdec;
+    background-color: #3073bb;
     color: #fff;
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
-margin-top:40px}
-.btn-card:hover{
+    text-decoration: none; /* Remove underline from links */
+    text-align: center;
+}
+
+.btn-card:hover {
     background-color: #fff;
     color: #3073bb;
 }
-.btn-card a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the button's text color (white) */
+
+.btn-card:focus {
+    outline: 2px solid #3073bb;
+    outline-offset: 2px;
 }
-.nav-menu{
+
+/* Navigation menu */
+.nav-menu {
     display: flex;
     justify-content: flex-end;
     padding: 15px;
-    text-decoration: none;
-    color:#f1f1f1;
-    background-color:#3073bb;
-    margin-bottom:40px
+    background-color: #3073bb;
+    margin-bottom: 40px;
 }
-.nav-list{ margin-right:30px; list-style-type: none;}
-.nav-list a{
-    text-decoration: none;
-    color:#f1f1f1;
+
+.nav-list { 
+    margin-right: 30px; 
+    list-style-type: none;
 }
+
 .nav-list li {
     padding: 10px 20px;
     border-radius: 0.25rem;
@@ -74,7 +116,6 @@ margin-top:40px}
 
 .nav-list li:hover {
     background-color: rgba(255, 255, 255, 0.2); /* White transparent */
-    cursor: pointer;
 }
 
 .nav-list a {
@@ -85,11 +126,37 @@ margin-top:40px}
 .nav-list a:hover {
     color: #fff; /* Brighter white on hover */
 }
+
+.nav-list a:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #353535;
+    color: white;
+    margin-top: 40px;
+}
+
 /* Mobile screens (phones) */
 @media (max-width: 768px) {
     .card-body {
         flex: 1 1 100%; /* Full width on mobile */
         max-width: 90%; /* Take up full width */
     }
-    h1{margin:0px 10px 40px 10px}
+    
+    h1 {
+        margin: 0px 10px 40px 10px;
+    }
+    
+    .btn-wrap {
+        flex-direction: column; /* Stack buttons vertically on mobile */
+    }
+    
+    .btn-card {
+        width: 100%; /* Full width buttons on mobile */
+    }
 }
